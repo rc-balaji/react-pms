@@ -1,0 +1,34 @@
+/* Nav.css */
+
+.nav-bar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #333;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  color: white;
+}
+
+.nav-item {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+}
+
+.nav-button {
+  background-color: #007bff; /* Button background color */
+  padding: 5px 10px; /* Button padding */
+  border-radius: 5px; /* Button border radius */
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background-color: #0056b3; /* Button background color on hover */
+}

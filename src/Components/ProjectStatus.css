@@ -1,0 +1,12 @@
+/* ProjectStatus.css */
+
+.project-status-container {
+  padding: 20px;
+  background-color: #f5f5f5; /* Background color for the container */
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333; /* Text color for the heading */
+}

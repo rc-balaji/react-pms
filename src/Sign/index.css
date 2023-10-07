@@ -1,0 +1,40 @@
+/* Index.css */
+
+/* Style the container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Style the header */
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style the buttons */
+.button-container {
+  list-style: none;
+  display: flex;
+  margin-top: 20px;
+}
+
+.button-container li {
+  margin: 0 10px;
+}
+
+.button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
