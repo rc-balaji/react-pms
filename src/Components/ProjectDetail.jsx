@@ -1,14 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ProjectDetail.css"; // Import the CSS file for styling
 import { Nav } from "../Navbar/Nav";
-import { useLocation } from "react-router";
+import { useUserContext } from "../Context/UserContext"; // Import the useProjectContext hook
 
 export const ProjectDetail = () => {
-  const location = useLocation();
-  const project = location.state ? location.state.project : [];
+  const { project } = useUserContext(); // Access project from context
   console.log(project);
-
-
 
   const teamLeader = "Ramesh";
 

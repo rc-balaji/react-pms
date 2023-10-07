@@ -1,12 +1,16 @@
+// Signin.js
 import React, { useState } from "react";
 import "./Signin.css";
 import { useNavigate } from "react-router";
+import { useUserContext } from "../Context/UserContext";
+// Import the useUserContext hook
 import { authenticateUser } from "./AuthService"; // Import the authentication service
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { setUser, setUserTask, setProject } = useUserContext(); // Access the context
 
   const Task = {
     Raj: [
@@ -67,7 +71,7 @@ const Signin = () => {
       name: "Raj",
       Task: "UI/UX",
       duration: 60,
-      Status: "Not Completed",
+      Status: "Not Start",
     },
     {
       name: "Sam",
@@ -82,14 +86,15 @@ const Signin = () => {
       Status: "Not Completed",
     },
   ];
-
   const handleSignin = () => {
     const user = authenticateUser(email, password);
 
     if (user) {
       const userTask = Task[user.name];
-
-      navigate("/home", { state: { user, userTask, project } }); // Include Task object in location state
+      setUser(user);
+      setUserTask(userTask);
+      setProject(project);
+      navigate("/home");
     } else {
       alert("Invalid email or password");
     }

@@ -1,20 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Home.css"; // Import the CSS file for styling
 import { Nav } from "../Navbar/Nav";
-import { useLocation } from "react-router-dom"; // Import the useLocation hook
+import { useUserContext } from "../Context/UserContext"; // Import the useUserContext hook
 
 export const Home = () => {
-  // Access the Task data using useLocation
-  const location = useLocation();
-  const Task = location.state ? location.state.userTask : [];
-  const project = location.state ? location.state.project : [];
-
-  console.log(project);
-
-  // console.log(Task);
+  const { userTask, project } = useUserContext(); // Access userTask and project from context
 
   // Initialize allotedTask with the Task data
-  const initialAllotedTask = Task || [];
+  const initialAllotedTask = userTask || [];
 
   const [allotedTask, setAllotedTask] = useState(initialAllotedTask);
 
@@ -27,6 +20,11 @@ export const Home = () => {
     }
     setAllotedTask(updatedTasks);
   };
+
+  useEffect(() => {
+    // Update userTask and project data from context if needed
+    // For example, you can fetch this data from an API
+  }, []);
 
   return (
     <div>

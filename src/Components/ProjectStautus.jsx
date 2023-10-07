@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import ChartPage from "./Chart";
 import "./ProjectStatus.css"; // Import the CSS file
 import { Nav } from "../Navbar/Nav";
+import { useUserContext } from "../Context/UserContext";
 
 export const ProjectStatus = () => {
-  const project = location.state ? location.state.project : [];
+  const { project } = useUserContext(); // Access project from context
   console.log(project);
   const [employeeData, setEmployeeData] = useState(project);
   //         [

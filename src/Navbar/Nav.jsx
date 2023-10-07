@@ -1,15 +1,10 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import "./Nav.css"; // Import the CSS file
-
+import { useUserContext } from "../Context/UserContext";
 export const Nav = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const user = location.state?.user; // Get user info from location state
-  //   console.log(user);
-  const project = location.state ? location.state.project : [];
-  const userTask = location.state ? location.state.userTask : {};
-  console.log(project);
+  const { user, project, userTask } = useUserContext(); // Access user-related data from context
 
   return (
     <div>
@@ -26,7 +21,7 @@ export const Nav = () => {
         <li
           className="nav-item"
           onClick={() => {
-            navigate("/prod", { state: { user, userTask, project } });
+            navigate("/prod");
           }}
         >
           Project Details
@@ -34,7 +29,7 @@ export const Nav = () => {
         <li
           className="nav-item"
           onClick={() => {
-            navigate("/pros", { state: { user, userTask, project } });
+            navigate("/pros");
           }}
         >
           Project Status
@@ -43,7 +38,9 @@ export const Nav = () => {
         <li
           className="nav-item nav-button"
           onClick={() => {
-            navigate("/", { state: { user, userTask, project } });
+            // Here, you can reset the user context when signing out
+            // For example, you can call setUser(null) to clear user data
+            navigate("/");
           }}
         >
           Sign Out
@@ -52,5 +49,3 @@ export const Nav = () => {
     </div>
   );
 };
-
-// export default Nav;
