@@ -1,0 +1,53 @@
+{
+  "Raj": [
+    {
+      "Work": "UI/UX",
+      "duration": "10",
+      "status": "Not Started"
+    },
+    {
+      "Work": "Table",
+      "duration": "20",
+      "status": "Not Started"
+    },
+    {
+      "Work": "UI/UX",
+      "duration": "30",
+      "status": "Not Started"
+    }
+  ],
+  "Sam": [
+    {
+      "Work": "CSS",
+      "duration": "20",
+      "status": "Not Started"
+    },
+    {
+      "Work": "Figma",
+      "duration": "30",
+      "status": "Not Started"
+    },
+    {
+      "Work": "Redux",
+      "duration": "40",
+      "status": "Not Started"
+    }
+  ],
+  "Ram": [
+    {
+      "Work": "MongoDB",
+      "duration": "40",
+      "status": "Not Started"
+    },
+    {
+      "Work": "Express",
+      "duration": "40",
+      "status": "Not Started"
+    },
+    {
+      "Work": "API",
+      "duration": "40",
+      "status": "Not Started"
+    }
+  ]
+}

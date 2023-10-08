@@ -1,21 +1,25 @@
-import React, { useContext } from "react";
-import "./ProjectDetail.css"; // Import the CSS file for styling
+// ProjectDetail.jsx
+import React, { useState, useEffect } from "react";
+import "./ProjectDetail.css";
 import { Nav } from "../Navbar/Nav";
-import { useUserContext } from "../Context/UserContext"; // Import the useProjectContext hook
+import axios from "axios"; // Import Axios
+import { useUserContext } from "../Context/UserContext";
 
 export const ProjectDetail = () => {
-  const { project } = useUserContext(); // Access project from context
-  console.log(project);
-
+  const { user } = useUserContext();
   const teamLeader = "Ramesh";
+  const [project, setProject] = useState([]);
 
-  // Calculate total duration
-  const totalDuration = project.reduce((acc, item) => acc + item.duration, 0);
-
-  // Calculate end date (assuming a start date is known)
-  const startDate = new Date(); // Replace with the actual start date
-  const endDate = new Date(startDate);
-  endDate.setDate(startDate.getDate() + totalDuration);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/project") // Replace with your server's endpoint
+      .then((response) => {
+        setProject(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching project data:", error);
+      });
+  }, []);
 
   // Function to get the row color based on status
   const getRowColor = (status) => {
@@ -30,6 +34,14 @@ export const ProjectDetail = () => {
         return "";
     }
   };
+
+  // Calculate total duration
+  const totalDuration = project.reduce((acc, item) => acc + item.duration, 0);
+
+  // Calculate end date (assuming a start date is known)
+  const startDate = new Date(); // Replace with the actual start date
+  const endDate = new Date(startDate);
+  endDate.setDate(startDate.getDate() + totalDuration);
 
   return (
     <div>
@@ -59,8 +71,8 @@ export const ProjectDetail = () => {
             ))}
           </tbody>
         </table>
-        <p className="total-duration">Total Duration: {totalDuration}</p>
-        <p className="end-date">End Date: {endDate.toDateString()}</p>
+        <p className="total-duration">Total Duration: {totalDuration} min</p>
+        {/* <p className="end-date">End Date: {endDate.toDateString()}</p> */}
       </div>
     </div>
   );

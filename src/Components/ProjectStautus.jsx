@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ChartPage from "./Chart";
 import "./ProjectStatus.css"; // Import the CSS file
 import { Nav } from "../Navbar/Nav";
-import { useUserContext } from "../Context/UserContext";
+// import { useUserContext } from "../Context/UserContext";
+// import project from "./project.json";
+import axios from "axios";
 
 export const ProjectStatus = () => {
-  const { project } = useUserContext(); // Access project from context
-  console.log(project);
-  const [employeeData, setEmployeeData] = useState(project);
+  const [project, setProject] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/api/project") // Replace with your server's endpoint
+      .then((response) => {
+        setProject(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching project data:", error);
+      });
+  }, []);
+  // const [employeeData, setEmployeeData] = useState(project);
   //         [
   //     { name: "Raj", Task: "UI/UX", duration: 70, Status: "Completed" },
   //     {
@@ -34,8 +46,8 @@ export const ProjectStatus = () => {
       <div className="project-status-container">
         <h1>Project Status</h1>
         <ChartPage
-          employeeData={employeeData}
-          setEmployeeData={setEmployeeData}
+          employeeData={project}
+          setEmployeeData={setProject}
         />
       </div>
     </div>

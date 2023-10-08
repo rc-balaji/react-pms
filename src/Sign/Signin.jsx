@@ -77,13 +77,13 @@ const Signin = () => {
       name: "Sam",
       Task: "CSS",
       duration: 90,
-      Status: "Not Completed",
+      Status: "Not Start",
     },
     {
       name: "Ram",
       Task: "MongoDB",
       duration: 120,
-      Status: "Not Completed",
+      Status: "Not Start",
     },
   ];
   const handleSignin = () => {

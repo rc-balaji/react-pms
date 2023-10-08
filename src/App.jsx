@@ -8,6 +8,7 @@ import { Nav } from "./Navbar/Nav";
 import { Home } from "./Components/Home";
 import { ProjectDetail } from "./Components/ProjectDetail";
 import { Index } from "./Sign";
+// import { Nav } from "./Navbar/Nav";
 
 function App() {
   return (

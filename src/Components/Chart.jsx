@@ -6,7 +6,7 @@ const ChartPage = ({ employeeData }) => {
   const COLORS = {
     Completed: "#00C49F",
     Pending: "#FFBB28",
-    "Not Start": "#00ff44",
+    "Not Start": "grey",
   };
 
   const sortedData = employeeData.sort((a, b) => {
